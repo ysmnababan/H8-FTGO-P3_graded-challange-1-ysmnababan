@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "c7daced9-fe7d-4b67-92ce-7db0ef593c3c",
+		"name": "soccer_field_rental",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35075337"
+	},
+	"item": [
+		{
+			"name": "get all transactions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/transactions",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get transaction by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/transaction/66781584e53ae909e44975f8",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"66781584e53ae909e44975f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new transaction",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"667810967656fadfbe9b033a\",\r\n    \"field_id\":\"667810967656fadfbe9b033b\",\r\n    \"start_time\":\"2024-06-23 18:00:00\",\r\n    \"end_time\":\"2024-06-23 20:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transaction",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit a transaction",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user_id\":\"667810967656fadfbe9b0339\",\r\n    \"field_id\":\"667810967656fadfbe9b033b\",\r\n    \"start_time\":\"2024-06-23 15:00:00\",\r\n    \"end_time\":\"2024-06-23 19:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/transaction/667814b6e53ae909e44975f6",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"667814b6e53ae909e44975f6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete transaction",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/transaction/66781584e53ae909e44975f8",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"66781584e53ae909e44975f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/users",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all fields",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/fields",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"fields"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
