@@ -27,7 +27,7 @@ func main() {
 	router.InitRoutes(e, db)
 
 	// initialize seed data for user and field
-	dataSeeding(db)
+	// dataSeeding(db)
 
 	// get port from .env
 	err := godotenv.Load()

@@ -47,7 +47,7 @@ func (r *Repo) GetTransactionID(t_ID string) (models.Transaction, error) {
 	id, err := primitive.ObjectIDFromHex(t_ID)
 	if err != nil {
 		helper.Logging(nil).Error(err)
-		return models.Transaction{}, err
+		return models.Transaction{}, helper.ErrInvalidId
 	}
 
 	isExist, err := r.IsTransactionExist(id)
@@ -80,7 +80,7 @@ func (r *Repo) CreateTransaction(t *models.Transaction) (interface{}, error) {
 		return nil, err
 	}
 
-	res, err := r.DB.Collection("transaction").InsertOne(context.TODO(), *t)
+	res, err := r.DB.Collection("transactions").InsertOne(context.TODO(), *t)
 	if err != nil {
 		helper.Logging(nil).Error(err)
 		return nil, helper.ErrQuery
@@ -94,7 +94,7 @@ func (r *Repo) UpdateTransaction(t_id string, t *models.Transaction) (interface{
 	transaction_id, err := primitive.ObjectIDFromHex(t_id)
 	if err != nil {
 		helper.Logging(nil).Error(err)
-		return nil, err
+		return nil, helper.ErrInvalidId
 	}
 
 	isTransactionExist, err := r.IsTransactionExist(transaction_id)
@@ -112,7 +112,7 @@ func (r *Repo) UpdateTransaction(t_id string, t *models.Transaction) (interface{
 		return nil, err
 	}
 
-	res, err := r.DB.Collection("transaction").UpdateOne(
+	res, err := r.DB.Collection("transactions").UpdateOne(
 		context.TODO(),
 		bson.M{"_id": transaction_id},
 		bson.M{"$set": t},
@@ -131,7 +131,7 @@ func (r *Repo) DeleteTransaction(t_id string) (interface{}, error) {
 	transaction_id, err := primitive.ObjectIDFromHex(t_id)
 	if err != nil {
 		helper.Logging(nil).Error(err)
-		return nil, err
+		return nil, helper.ErrInvalidId
 	}
 
 	isTransactionExist, err := r.IsTransactionExist(transaction_id)

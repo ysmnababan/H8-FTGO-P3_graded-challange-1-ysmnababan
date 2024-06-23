@@ -15,12 +15,12 @@ func IsTimeValid(startTime, endTime string) bool {
 		return false
 	}
 
-	end, err := time.Parse(layout, startTime)
+	end, err := time.Parse(layout, endTime)
 	if err != nil {
 		Logging(nil).Error(err)
 		return false
 	}
-
+	// fmt.pr
 	// both time must be in the same day
 	if !isSameDay(start, end) {
 		return false

@@ -39,7 +39,8 @@ func (c *TransactionController) CreateTransaction(e echo.Context) error {
 	var req models.Transaction
 	err := e.Bind(&req)
 	if err != nil {
-		return helper.ParseError(err, e)
+		helper.Logging(e).Error(err)
+		return helper.ParseError(helper.ErrBindJSON, e)
 	}
 
 	helper.Logging(e).Info("INPUT DATA :", req)
@@ -70,7 +71,8 @@ func (c *TransactionController) EditTransaction(e echo.Context) error {
 	var req models.Transaction
 	err := e.Bind(&req)
 	if err != nil {
-		return helper.ParseError(err, e)
+		helper.Logging(e).Error(err)
+		return helper.ParseError(helper.ErrBindJSON, e)
 	}
 
 	helper.Logging(e).Info("INPUT DATA :", req)
