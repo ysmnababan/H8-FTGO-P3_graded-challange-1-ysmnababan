@@ -12,11 +12,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/transactions",
+					"raw": "https://field-rental-app-753cnjdw3a-et.a.run.app/transactions",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"field-rental-app-753cnjdw3a-et",
+						"a",
+						"run",
+						"app"
 					],
-					"port": "8080",
 					"path": [
 						"transactions"
 					]
@@ -30,14 +33,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/transaction/66781584e53ae909e44975f8",
+					"raw": "https://field-rental-app-753cnjdw3a-et.a.run.app/transaction/66781511e53ae909e44975f7",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"field-rental-app-753cnjdw3a-et",
+						"a",
+						"run",
+						"app"
 					],
-					"port": "8080",
 					"path": [
 						"transaction",
-						"66781584e53ae909e44975f8"
+						"66781511e53ae909e44975f7"
 					]
 				}
 			},
@@ -50,7 +56,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user_id\":\"667810967656fadfbe9b033a\",\r\n    \"field_id\":\"667810967656fadfbe9b033b\",\r\n    \"start_time\":\"2024-06-23 18:00:00\",\r\n    \"end_time\":\"2024-06-23 20:00:00\"\r\n}",
+					"raw": "{\r\n    \"user_id\":\"667810967656fadfbe9b033a\",\r\n    \"field_id\":\"667810967656fadfbe9b033b\",\r\n    \"start_time\":\"2024-06-23 10:00:00\",\r\n    \"end_time\":\"2024-06-23 14:00:00\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -58,11 +64,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/transaction",
+					"raw": "https://field-rental-app-753cnjdw3a-et.a.run.app/transaction",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"field-rental-app-753cnjdw3a-et",
+						"a",
+						"run",
+						"app"
 					],
-					"port": "8080",
 					"path": [
 						"transaction"
 					]
@@ -85,14 +94,17 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:8080/transaction/667814b6e53ae909e44975f6",
+					"raw": "https://field-rental-app-753cnjdw3a-et.a.run.app/transaction/66785b9f179af9eac06ef46c",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"field-rental-app-753cnjdw3a-et",
+						"a",
+						"run",
+						"app"
 					],
-					"port": "8080",
 					"path": [
 						"transaction",
-						"667814b6e53ae909e44975f6"
+						"66785b9f179af9eac06ef46c"
 					]
 				}
 			},
@@ -104,14 +116,17 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/transaction/66781584e53ae909e44975f8",
+					"raw": "https://field-rental-app-753cnjdw3a-et.a.run.app/transaction/66785b9f179af9eac06ef46c",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"field-rental-app-753cnjdw3a-et",
+						"a",
+						"run",
+						"app"
 					],
-					"port": "8080",
 					"path": [
 						"transaction",
-						"66781584e53ae909e44975f8"
+						"66785b9f179af9eac06ef46c"
 					]
 				}
 			},
@@ -123,11 +138,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/users",
+					"raw": "https://field-rental-app-753cnjdw3a-et.a.run.app/users",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"field-rental-app-753cnjdw3a-et",
+						"a",
+						"run",
+						"app"
 					],
-					"port": "8080",
 					"path": [
 						"users"
 					]
@@ -141,11 +159,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:8080/fields",
+					"raw": "https://field-rental-app-753cnjdw3a-et.a.run.app/fields",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"field-rental-app-753cnjdw3a-et",
+						"a",
+						"run",
+						"app"
 					],
-					"port": "8080",
 					"path": [
 						"fields"
 					]
