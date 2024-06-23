@@ -35,7 +35,7 @@ func (r *Repo) GetAllFields() ([]models.Field, error) {
 
 func (r *Repo) IsFieldExist(field_id primitive.ObjectID) (bool, error) {
 	var res bson.M
-	err := r.DB.Collection("fields").FindOne(context.TODO(), bson.M{"_id": field_id}).Decode(&res)
+	err := r.DB.Collection("fields").FindOne(context.TODO(), bson.M{"_id": field_id, "status": "Available"}).Decode(&res)
 	if err != nil {
 		if err == mongo.ErrNoDocuments {
 			return false, helper.ErrNoData
