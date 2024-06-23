@@ -10,6 +10,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
+	"github.com/robfig/cron"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -21,6 +22,14 @@ func main() {
 		}
 	}()
 
+	// add new cronjob
+	c := cron.New()
+	c.AddFunc("5 0 * * *", func() {
+		// create cron job that execute every day at at 00:05
+		helper.UpdateUsingHour(db)
+	})
+	helper.Logging(nil).Info("Start Cron")
+	c.Start()
 	e := echo.New()
 
 	//initialize endpoint
