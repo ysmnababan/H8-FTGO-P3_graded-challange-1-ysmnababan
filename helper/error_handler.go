@@ -27,7 +27,7 @@ var (
 )
 
 func ParseError(err error, ctx echo.Context) error {
-	Logging(ctx).Error(err)
+	// Logging(ctx).Error(err)
 	status := http.StatusOK
 	message := ""
 	switch {
