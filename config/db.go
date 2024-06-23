@@ -30,10 +30,10 @@ func Connect(ctx context.Context, dbname string) (*mongo.Client, *mongo.Database
 
 	db := client.Database(dbname)
 
-	// err = client.Ping(ctx, nil)
-	// if err != nil {
-	// 	panic(err)
-	// } 
+	err = client.Ping(ctx, nil)
+	if err != nil {
+		panic(err)
+	} 
 	fmt.Fprintln(os.Stdout, []any{"Pinged your deployment. You successfully connected to MongoDB!"}...)
 
 	return client, db
