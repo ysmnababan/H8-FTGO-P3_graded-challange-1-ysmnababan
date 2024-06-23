@@ -10,6 +10,29 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+type FieldRepo interface {
+	GetAllFields() ([]models.Field, error)
+}
+
+func (r *Repo) GetAllFields() ([]models.Field, error) {
+	var fields []models.Field
+	cursor, err := r.DB.Collection("fields").Find(context.TODO(), bson.D{{}})
+	if err != nil {
+		helper.Logging(nil).Error(err)
+		return nil, helper.ErrQuery
+	}
+
+	for cursor.Next(context.TODO()) {
+		var field models.Field
+		if err := cursor.Decode(&field); err != nil {
+			helper.Logging(nil).Error(err)
+			return nil, helper.ErrQuery
+		}
+		fields = append(fields, field)
+	}
+	return fields, nil
+}
+
 func (r *Repo) IsFieldExist(field_id primitive.ObjectID) (bool, error) {
 	var res bson.M
 	err := r.DB.Collection("fields").FindOne(context.TODO(), bson.M{"_id": field_id}).Decode(&res)
