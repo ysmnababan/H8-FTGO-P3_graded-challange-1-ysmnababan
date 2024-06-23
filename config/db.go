@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/joho/godotenv"
-	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -31,10 +30,10 @@ func Connect(ctx context.Context, dbname string) (*mongo.Client, *mongo.Database
 
 	db := client.Database(dbname)
 
-	// Send a ping to confirm a successful connection
-	if err := db.RunCommand(ctx, bson.D{{Key: "ping", Value: 1}}).Err(); err != nil {
-		panic(err)
-	}
+	// err = client.Ping(ctx, nil)
+	// if err != nil {
+	// 	panic(err)
+	// } 
 	fmt.Fprintln(os.Stdout, []any{"Pinged your deployment. You successfully connected to MongoDB!"}...)
 
 	return client, db

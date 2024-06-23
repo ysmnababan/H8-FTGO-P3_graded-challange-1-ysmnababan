@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"graded-challange-1-ysmnababan/config"
 	"graded-challange-1-ysmnababan/helper"
 	"graded-challange-1-ysmnababan/models"
@@ -14,6 +15,8 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+// deployment link :
+// https://field-rental-app-753cnjdw3a-et.a.run.app
 func main() {
 	client, db := config.Connect(context.TODO(), "soccer_field_rental_db")
 	defer func() {
@@ -28,7 +31,7 @@ func main() {
 		// create cron job that execute every day at at 00:05
 		helper.UpdateUsingHour(db)
 	})
-	helper.Logging(nil).Info("Start Cron")
+	helper.Logging(nil).Info("START CRON JOB")
 	c.Start()
 	e := echo.New()
 
@@ -43,7 +46,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	e.Logger.Fatal(e.Start(":" + os.Getenv("PORT")))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	e.Logger.Fatal(e.Start(fmt.Sprintf(":%s", port)))
 }
 
 func dataSeeding(db *mongo.Database) {

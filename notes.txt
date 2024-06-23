@@ -1,0 +1,12 @@
+// build to docker image 
+docker build -t field-rental-app .  
+
+// create tag to be push to gcp
+docker tag field-rental-app gcr.io/test-gcp-427110/field-rental-app
+
+// push to gcp
+docker push gcr.io/test-gcp-427110/field-rental-app
+
+// deploy to gcp
+// don't forget to add all relevant variable in .env
+gcloud run deploy field-rental-app --image gcr.io/test-gcp-427110/field-rental-app --platform managed --region asia-southeast2 --allow-unauthenticated --project test-gcp-427110
